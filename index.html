@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>3D Anatomy Atelier - English & Sinhala (සිංහල)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='24' font-size='24'%3E%E2%9D%A4%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap"
+  rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <span class="header-rule"></span>
+    <h1 class="brand-title">Anatomy Atelier</h1>
+    <span class="header-rule"></span>
+  </div>
+  <p class="brand-subtitle">Interactive 3D Human Anatomy &nbsp;·&nbsp; මානව ශරීර ව්‍යුහ විද්‍යාව</p>
+</header>
+
+<!-- ======================= MAIN ======================= -->
+<main class="layout">
+
+  <!-- ---------- LEFT : ORGAN LIBRARY ---------- -->
+  <aside class="panel library-panel">
+    <div class="library-head">
+      <h2 class="panel-title">Organs · අවයව</h2>
+      <span class="library-count">9</span>
+    </div>
+    <nav id="organ-list" class="organ-list" aria-label="Organ List"></nav>
+    <div class="library-foot">
+      <span class="foot-dot"></span> Select an organ · Drag to rotate in 3D
+    </div>
+  </aside>
+
+  <!-- ---------- CENTER : 3D STAGE ---------- -->
+  <section class="stage-wrap">
+    <div class="stage-frame">
+      <canvas id="stage"></canvas>
+
+      <!-- loading veil -->
+      <div id="loader" class="loader">
+        <div class="loader-card">
+          <div class="loader-orn">❦</div>
+          <div class="loader-label">Preparing 3D Specimen<br/><small style="font-size:12px;opacity:0.85">ආකෘතිය සූදානම් කෙරෙමින් පවතී</small></div>
+          <div class="loader-bar"><div id="loader-fill" class="loader-fill"></div></div>
+          <div id="loader-pct" class="loader-pct">0%</div>
+        </div>
+      </div>
+
+      <!-- stage caption (TOP-LEFT) -->
+      <div class="stage-caption">
+        <span class="caption-overline">3D SPECIMEN · EXPLORE STRUCTURES</span>
+        <span id="caption-name" class="caption-name">Heart · හෘදය</span>
+      </div>
+
+      <!-- sleek guide pill (TOP-RIGHT) -->
+      <div class="tip-note" title="Drag to rotate, scroll to zoom, click pins to explore parts">
+        <span class="tip-icon">✦</span>
+        <span>Drag to rotate · Scroll to zoom · Click pins</span>
+      </div>
+
+      <!-- CINEMATIC VIDEO TOUR PLAYER BAR (BOTTOM CONSOLE) -->
+      <div class="video-tour-bar" id="tour-bar">
+        <button id="btn-tour-play" class="tour-btn primary" type="button" title="Play / Pause 3D Video Tour">
+          <span class="tour-icon" id="tour-play-icon">▶</span>
+          <span id="tour-play-text">Video Tour</span>
+        </button>
+        <button id="btn-tour-prev" class="tour-btn icon-only" type="button" title="Previous Part / පෙර කොටස">⏮</button>
+        <div class="tour-progress-wrap">
+          <div class="tour-info-line">
+            <span id="tour-part-title">Auto Tour: Ready · වීඩියෝ චාරිකාව අරඹන්න</span>
+            <span id="tour-part-counter" class="tour-counter">Part 1 / 3</span>
+          </div>
+          <div class="tour-timeline" id="tour-timeline" title="Click to jump timeline">
+            <div id="tour-progress-fill" class="tour-progress-fill"></div>
+          </div>
+        </div>
+        <button id="btn-tour-next" class="tour-btn icon-only" type="button" title="Next Part / ඊළඟ කොටස">⏭</button>
+        <div class="tour-actions">
+          <button id="btn-rotate" class="tour-btn icon-only active" type="button" title="Auto Rotate / ස්වයං කැරකීම">🔄</button>
+          <button id="btn-reset" class="tour-btn icon-only" type="button" title="Reset View / මුල් පිහිටුම">🎯</button>
+          <button id="btn-sound" class="tour-btn icon-only" type="button" title="Audio Sound Toggle">🔊</button>
+          <button id="btn-lang" class="tour-btn" type="button" title="Toggle English / සිංහල">🌐 EN / සිංහල</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- RIGHT : KNOWLEDGE CARD ---------- -->
+  <aside class="panel info-panel">
+    <div id="info-content" class="info-content"><!-- filled by JS --></div>
+  </aside>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-footer">
+  <p>Interactive 3D Human Anatomy Animation · Designed for Educational & Medical Learning · අධ්‍යාපනික සහ ඉගෙනුම් භාවිතය සඳහා පමණි</p>
+</footer>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "./js/vendor/three.module.js"
+  }
+}
+</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
